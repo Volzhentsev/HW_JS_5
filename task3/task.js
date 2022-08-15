@@ -1,5 +1,5 @@
-const d = document.getElementById('dead');
-const l = document.getElementById('lost');
+const dead = document.getElementById('dead');
+const lost = document.getElementById('lost');
 
 function check(id) {
     let check = document.getElementById(id);
@@ -16,20 +16,21 @@ function hole() {
 
 function smash(bool) {
     if (bool == true) {
-        d.textContent = Number(d.textContent) + 1;
-        if (d.textContent == 10) {
-            alert('Victory!');
-            d.textContent = 0;
-            l.textContent = 0;
+        dead.textContent = Number(dead.textContent) + 1;
+        if (dead.textContent == 10) {
+            gameResult('Victory!');
     } 
     } else {
-        l.textContent = Number(l.textContent) + 1;
-        if (l.textContent == 5) {
-            alert('Defeat!');
-            d.textContent = 0;
-            l.textContent = 0;
+        lost.textContent = Number(lost.textContent) + 1;
+        if (lost.textContent == 5) {
+            gameResult('Defeat!');
     }
     }
 }
 
+function gameResult(result) {
+    alert(result);
+    dead.textContent = 0;
+    lost.textContent = 0;
+}
 hole()
